@@ -5,7 +5,7 @@ import shortcuts
 inputs.time.sleep(15)
 historiasClinicas = []
 nPant=1
-verFechas.cargarHC(historiasClinicas, "pac.txt")
+verFechas.cargarHC(historiasClinicas, "pacfecha.csv")
 
 
 for hClinic in historiasClinicas:

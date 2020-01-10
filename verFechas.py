@@ -29,16 +29,12 @@ def extractCSV(file, nHC):
 
 
 
-def cargarHC(lista, filename):
-    f = open(filename, encoding="utf8")
-    hcSize = len(f.readlines())
-    f.close()
-    f = open(filename, encoding="utf8")
-    for i in range(0,hcSize):
-        if i == hcSize-1:
-            hClinic = f.readline()
-        else:
-            line = f.readline()
-            hClinic = line[:-1]
-        lista.append(hClinic)
-#extractCSV("pacfecha.csv","393")
+def cargarHC(lista, file):
+    with open(file) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')        
+        for row in csv_reader:
+            lista.append(row[0])
+        
+        lista = list(dict.fromkeys(lista))
+    #print(lista)
+    return lista
