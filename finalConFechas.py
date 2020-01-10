@@ -4,11 +4,11 @@ import shortcuts
 
 inputs.time.sleep(15)
 historiasClinicas = []
-nPant=1
 verFechas.cargarHC(historiasClinicas, "pacfecha.csv")
 
 
 for hClinic in historiasClinicas:
+    nPant=1
     shortcuts.entrarHC(hClinic)
     stopExt = True
     ptCounter = 1
@@ -18,13 +18,13 @@ for hClinic in historiasClinicas:
         ptCounter += 1
         screenFechas = verFechas.extractFechasScreen(screenCp)
         
-
-        
+        """ compara fechas """
         for date in csvFechas:
             for i in range(0, len(screenFechas)):
                 if screenFechas[i] == date:
                     nPant = shortcuts.recolectarHC(i, hClinic, date, nPant)
         
+        """ menor de 2017 sale de pantalla """
         for date in screenFechas:
             if int(date[0:4]) <= 2017:
                 stopExt = False
