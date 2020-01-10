@@ -1,33 +1,30 @@
 import verFechas
 import inputs
-import shortcuts
+import shortcutsNewSaves
 
 inputs.time.sleep(15)
 historiasClinicas = []
-#nPant=1
 verFechas.cargarHC(historiasClinicas, "pac.txt")
 
 
 for hClinic in historiasClinicas:
-    nPant=1
-    shortcuts.entrarHC(hClinic)
+    shortcutsNewSaves.entrarHC(hClinic)
     stopExt = True
     ptCounter = 1
     csvFechas = verFechas.extractCSV("pacfecha.csv", hClinic)
     while stopExt:
-        screenCp = shortcuts.tomarCaptura(hClinic + str(ptCounter))
+        screenCp = shortcutsNewSaves.tomarCaptura(hClinic + str(ptCounter))
         
         screenFechas = verFechas.extractFechasScreen(screenCp)
         
 
         
         for date in csvFechas:
-            #nFechRep = 1
+            nFechRep = 1
             for i in range(0, len(screenFechas)):
-
                 if screenFechas[i] == date:
-                    nPant = shortcuts.recolectarHC(i, hClinic, date, nPant) #(ptCounter, nFechRep)
-                    #nFechRep + = 1
+                    shortcutsNewSaves.recolectarHC(i, hClinic, date, ptCounter, nFechRep)
+                    nFechRep += 1
         
         for date in screenFechas:
             if int(date[0:4]) <= 2017:

@@ -1,5 +1,7 @@
 import inputs 
 
+""" Son todos los pasos que se utilia para entrar a la interfaz de historias clinicas de un paciente """
+
 def entrarHC(hClinic):
     inputs.pulsarTecla(inputs.Key.down)
     for i in range(0,8):
@@ -10,6 +12,8 @@ def entrarHC(hClinic):
     inputs.pulsarTecla(inputs.Key.enter)
     inputs.pulsarTeclaDeley(inputs.Key.f11)
     inputs.pulsarTeclaDeley(inputs.Key.f6)
+
+""" toma captura de la pantalla de historias clinicas actual """
 
 def tomarCaptura(hClinic):
     inputs.pulsarTecla(inputs.Key.alt)
@@ -25,6 +29,7 @@ def tomarCaptura(hClinic):
     inputs.time.sleep(1)
     return hClinic + '.txt'
 
+""" recolecta la historia clinica de un paciente en una fecha indicada dentro de la pantalla indicada """
 
 def recolectarHC(ind, hClinic, date, nPant):
     for i in range(0, ind):

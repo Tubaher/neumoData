@@ -1,6 +1,7 @@
 import csv
 
-
+""" extrae todas las fechas que salen en la pantalla de historias clnicas del AES400
+y las pasa a un txt de nomre "num_histori_clinica.txt" """
 def extractFechasScreen(file):
     f = open(file, encoding="utf8")
 
@@ -16,6 +17,9 @@ def extractFechasScreen(file):
     return fechas
 
 
+""" dados un csv, y un numero de historia clinica, extrae todas las extrae 
+del csv todas las fechas que corresponden a esa historia clinica """
+
 def extractCSV(file, nHC):
     fechasToExtract = []
     with open(file) as csv_file:
@@ -28,6 +32,8 @@ def extractCSV(file, nHC):
     return fechasToExtract
 
 
+""" carga una lista vacia con todas los numeros de historia clinica que existen en el 
+csv sin repetir duplicados """
 
 def cargarHC(lista, file):
     with open(file) as csv_file:
