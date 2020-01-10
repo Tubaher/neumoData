@@ -6,7 +6,7 @@ inputs.time.sleep(15)
 historiasClinicas = []
 verFechas.cargarHC(historiasClinicas, "pacfecha.csv")
 
-
+""" itera entre todas las historiasClinicas """
 for hClinic in historiasClinicas:
     nPant=1
     shortcuts.entrarHC(hClinic)
@@ -30,11 +30,13 @@ for hClinic in historiasClinicas:
                 stopExt = False
                 break
         
+        """ si no hay fecha, seguir a la siguiente pantalla """
         if inputs.checkscreen(screenCp) != 0:
             inputs.pulsarTecla(inputs.Key.page_down)
         else:
             stopExt = False
     
+    """ regresar al buscador de historiasClinicas """
     inputs.pulsarTecla(inputs.Key.f3)
     inputs.pulsarTecla(inputs.Key.f3)
     inputs.time.sleep(1)

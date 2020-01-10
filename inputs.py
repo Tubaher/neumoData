@@ -3,7 +3,7 @@ import time
 
 keyboard = Controller()
 
-# encontrar F y detener
+""" encontrar F de Final y detener """
 def checkscreen(file):
     try:
         f=open(file+".txt", encoding = "utf8")
@@ -15,7 +15,8 @@ def checkscreen(file):
     except:
         return 1
 
-        
+
+""" atajos para presionar teclas """
 def pulsarTecla(x):
     keyboard.press(x)
     keyboard.release(x)
@@ -31,6 +32,7 @@ def combTeclas(x,y):
     keyboard.release(y)
     keyboard.release(x)
 
+""" escribe la cadena que le ordenemos """
 def escribir(cadena):
     for char in cadena:
         pulsarTecla(char)    
